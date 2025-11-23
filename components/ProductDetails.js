@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 export default function ProductDetails({ id }) {
@@ -152,21 +153,21 @@ export default function ProductDetails({ id }) {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-3 pt-4">
-                <a 
+                <Link 
                   href={"/products"}
                   className="flex-1 min-w-[140px] px-6 py-4 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-700/50 text-white rounded-xl hover:bg-slate-700/50 hover:border-slate-600 transition-all duration-300 shadow-lg font-bold text-center flex items-center justify-center gap-2"
                 >
                   <span>←</span>
                   <span>Back</span>
-                </a>
+                </Link>
                 
-                <a 
+                <Link 
                   href={`/products/${id}/edit`}
                   className="flex-1 min-w-[140px] px-6 py-4 bg-purple-500/20 backdrop-blur-sm border-2 border-purple-400/30 text-purple-400 rounded-xl hover:bg-purple-500 hover:text-white hover:border-purple-400 transition-all duration-300 shadow-lg font-bold text-center flex items-center justify-center gap-2"
                 >
                   <span>✏️</span>
                   <span>Edit</span>
-                </a>
+                </Link>
                 
                 <button
                   onClick={() => alert("🛒 Added to cart!")}

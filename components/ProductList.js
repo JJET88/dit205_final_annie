@@ -2,6 +2,7 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import Header from "./Header";
+import Link from "next/link";
 
 const showToast = (message, type) => {
 	console.log(`[${type}] ${message}`);
@@ -146,7 +147,7 @@ export default function ProductList() {
 									opacity: 0,
 								}}
 							>
-								<a
+								<Link
 									href={`/products/${p.id}`}
 									className="block relative overflow-hidden h-56 w-full bg-gradient-to-br from-slate-800 to-slate-900"
 								>
@@ -159,7 +160,7 @@ export default function ProductList() {
 
 									{/* Hover overlay */}
 									<div className="absolute inset-0 bg-gradient-to-t from-cyan-400/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-								</a>
+								</Link>
 
 								<div className="p-5 flex flex-col">
 									<h2 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors mb-2 truncate">
@@ -170,7 +171,7 @@ export default function ProductList() {
 									</p>
 
 									<div className="pt-4 border-t border-slate-700/50 flex items-center justify-between gap-2">
-										<a
+										<Link
 											href={`/products/${p.id}`}
 											className="flex-1 p-2.5 bg-cyan-500/20 border border-cyan-400/30 text-cyan-400 rounded-lg hover:bg-cyan-500 hover:text-white transition-all duration-300 flex items-center justify-center"
 											title="View"
@@ -194,9 +195,9 @@ export default function ProductList() {
 													d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
 												/>
 											</svg>
-										</a>
+										</Link>
 
-										<a
+										<Link
 											href={`/products/${p.id}/edit`}
 											className="flex-1 p-2.5 bg-purple-500/20 border border-purple-400/30 text-purple-400 rounded-lg hover:bg-purple-500 hover:text-white transition-all duration-300 flex items-center justify-center"
 											title="Edit"
@@ -209,7 +210,7 @@ export default function ProductList() {
 											>
 												<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
 											</svg>
-										</a>
+										</Link>
 
 										<button
 											onClick={() => handleDelete(p.id)}

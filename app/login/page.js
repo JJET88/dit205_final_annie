@@ -14,6 +14,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -65,12 +66,9 @@ function LoginForm() {
               </svg>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 mb-2">
-              Welcome Back
+            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 mb-2">
+              Sign in to your account
             </h1>
-            <p className="text-cyan-300/80 text-sm">
-              Sign in to continue your journey
-            </p>
           </div>
 
           {/* Error Message */}
@@ -88,8 +86,8 @@ function LoginForm() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email Field */}
             <div className="space-y-2">
-              <label className="block text-sm font-bold text-cyan-400 tracking-wide uppercase">
-                Email Address
+              <label className="block text-sm font-medium text-cyan-400">
+                Your email
               </label>
               <div className="relative">
                 <input
@@ -97,8 +95,8 @@ function LoginForm() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="your@email.com"
-                  className="w-full px-4 py-4 pl-12 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-700/50 text-white rounded-xl shadow-lg focus:ring-4 focus:ring-cyan-400/50 focus:border-cyan-400 focus:outline-none placeholder-gray-500 transition-all duration-300"
+                  placeholder="name@company.com"
+                  className="w-full px-4 py-3 pl-12 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-700/50 text-white rounded-xl shadow-lg focus:ring-4 focus:ring-cyan-400/50 focus:border-cyan-400 focus:outline-none placeholder-gray-500 transition-all duration-300"
                 />
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-cyan-400">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -111,7 +109,7 @@ function LoginForm() {
 
             {/* Password Field */}
             <div className="space-y-2">
-              <label className="block text-sm font-bold text-cyan-400 tracking-wide uppercase">
+              <label className="block text-sm font-medium text-cyan-400">
                 Password
               </label>
               <div className="relative">
@@ -120,8 +118,8 @@ function LoginForm() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  placeholder="Enter your password"
-                  className="w-full px-4 py-4 pl-12 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-700/50 text-white rounded-xl shadow-lg focus:ring-4 focus:ring-cyan-400/50 focus:border-cyan-400 focus:outline-none placeholder-gray-500 transition-all duration-300"
+                  placeholder="••••••••"
+                  className="w-full px-4 py-3 pl-12 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-700/50 text-white rounded-xl shadow-lg focus:ring-4 focus:ring-cyan-400/50 focus:border-cyan-400 focus:outline-none placeholder-gray-500 transition-all duration-300"
                 />
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-cyan-400">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -131,18 +129,34 @@ function LoginForm() {
               </div>
             </div>
 
-            {/* Forgot Password Link */}
-            <div className="flex justify-end">
-              <a href="#" className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors font-semibold">
-                Forgot password?
-              </a>
+            {/* Remember me and Forgot password */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <input
+                  id="remember-me"
+                  name="remember-me"
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="h-4 w-4 text-cyan-400 focus:ring-cyan-500 border-gray-600 rounded bg-slate-800/50"
+                />
+                <label htmlFor="remember-me" className="ml-2 block text-sm text-cyan-300">
+                  Remember me
+                </label>
+              </div>
+
+              <div className="text-sm">
+                <a href="#" className="font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+                  Forgot password?
+                </a>
+              </div>
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 mt-6 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white rounded-xl font-bold hover:shadow-2xl hover:shadow-cyan-400/50 transition-all duration-300 shadow-lg flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 disabled:hover:scale-100"
+              className="w-full py-3 mt-2 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white rounded-xl font-bold hover:shadow-2xl hover:shadow-cyan-400/50 transition-all duration-300 shadow-lg flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 disabled:hover:scale-100"
             >
               {isSubmitting ? (
                 <>
@@ -153,35 +167,20 @@ function LoginForm() {
                   <span>Signing In...</span>
                 </>
               ) : (
-                <>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Sign In</span>
-                </>
+                "Sign in"
               )}
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="relative my-8">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-slate-700/50"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-slate-900/50 text-gray-400">or</span>
-            </div>
-          </div>
-
           {/* Footer */}
-          <div className="text-center">
+          <div className="text-center mt-6">
             <p className="text-gray-400 text-sm">
-              Don't have an account?{" "}
+              Don't have an account yet?{" "}
               <Link
                 href="/register"
                 className="text-cyan-400 font-bold hover:text-cyan-300 transition-colors"
               >
-                Create Account
+                Sign up
               </Link>
             </p>
           </div>

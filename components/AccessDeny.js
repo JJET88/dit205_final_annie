@@ -12,11 +12,7 @@ export default function AccessDeny() {
 
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
           <div className="bg-slate-900/50 backdrop-blur-xl border-2 border-red-400/30 shadow-2xl shadow-red-500/20 rounded-3xl p-12 max-w-md text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-red-500/20 backdrop-blur-sm border-2 border-red-400/30 rounded-full mb-6 shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
+          
             
             <h2 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-500 mb-3">
               Access Denied
