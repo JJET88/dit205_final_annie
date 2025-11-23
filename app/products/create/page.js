@@ -1,7 +1,6 @@
 "use client";
 import AccessDeny from "@/components/AccessDeny";
 import ProductForm from "@/components/ProductForm";
-import UserProfile from "@/components/UserProfile";
 import { useSession } from "next-auth/react";
 
 export default function page() {
